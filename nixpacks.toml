@@ -8,12 +8,14 @@ nixPkgs = [
   "php82Extensions.exif",
   "php82Extensions.mbstring",
   "php82Extensions.xml",
-  "nodejs_20"
+  "nodejs_20",
+  "composer"
 ]
 aptPkgs = ["libzip-dev", "libpng-dev", "libjpeg-dev", "libxml2-dev"]
 
 [phases.install]
 cmds = [
+  "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
   "composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist",
   "npm install --no-audit --no-fund"
 ]

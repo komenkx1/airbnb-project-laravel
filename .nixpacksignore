@@ -1,0 +1,65 @@
+# Laravel Nixpacks Ignore
+# Files and directories excluded from the build context
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Environment files
+.env
+.env.local
+.env.staging
+.env.production
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files (not needed for Nixpacks)
+Dockerfile
+docker-compose.yml
+docker-compose.yaml
+.dockerignore
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+docs/
+
+# Tests
+tests/
+phpunit.xml
+.phpunit.result.cache
+
+# Development tools
+.php-cs-fixer.cache
+.pint.json
+.editorconfig
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Storage (will be created at runtime)
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+!storage/framework/cache/.gitkeep
+!storage/framework/sessions/.gitkeep
+!storage/framework/views/.gitkeep
+!storage/logs/.gitkeep
+
+# Cache
+bootstrap/cache/*.php
+!bootstrap/cache/.gitkeep

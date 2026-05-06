@@ -1,0 +1,42 @@
+[phases.setup]
+nixpkgsArchive = "23.05"
+nixPackages = [
+  "php82",
+  "php82Extensions.pdo_mysql",
+  "php82Extensions.curl",
+  "php82Extensions.zip",
+  "php82Extensions.gd",
+  "php82Extensions.exif",
+  "php82Extensions.mbstring",
+  "php82Extensions.xml",
+  "composer",
+  "nodejs_20",
+  "npm"
+]
+aptPackages = ["libzip-dev", "libpng-dev", "libjpeg-dev", "libxml2-dev"]
+
+[phases.install]
+commands = [
+  "composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist",
+  "npm ci --no-audit --no-fund"
+]
+
+[phases.build]
+commands = [
+  "npm run build",
+  "php artisan config:cache",
+  "php artisan route:cache",
+  "php artisan view:cache",
+  "php artisan storage:link || true"
+]
+
+[phases.start]
+command = "php artisan serve --host=0.0.0.0 --port=$PORT"
+
+[environment]
+APP_ENV = "production"
+APP_DEBUG = "false"
+CACHE_DRIVER = "file"
+SESSION_DRIVER = "file"
+LOG_CHANNEL = "stack"
+QUEUE_CONNECTION = "sync"

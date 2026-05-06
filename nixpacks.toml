@@ -1,5 +1,4 @@
 [phases.setup]
-nixpkgsArchive = "23.05"
 nixPkgs = [
   "php82",
   "php82Extensions.pdo_mysql",
@@ -9,16 +8,14 @@ nixPkgs = [
   "php82Extensions.exif",
   "php82Extensions.mbstring",
   "php82Extensions.xml",
-  "composer",
-  "nodejs_20",
-  "npm"
+  "nodejs_20"
 ]
 aptPkgs = ["libzip-dev", "libpng-dev", "libjpeg-dev", "libxml2-dev"]
 
 [phases.install]
 cmds = [
   "composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist",
-  "npm ci --no-audit --no-fund"
+  "npm install --no-audit --no-fund"
 ]
 
 [phases.build]

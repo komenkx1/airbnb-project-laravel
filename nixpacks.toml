@@ -15,7 +15,7 @@ aptPkgs = ["libzip-dev", "libpng-dev", "libjpeg-dev", "libxml2-dev", "curl"]
 [phases.install]
 cmds = [
   "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
-  "composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist",
+  "php /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist",
   "npm install --no-audit --no-fund"
 ]
 

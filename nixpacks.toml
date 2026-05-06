@@ -8,10 +8,9 @@ nixPkgs = [
   "php82Extensions.exif",
   "php82Extensions.mbstring",
   "php82Extensions.xml",
-  "nodejs_20",
-  "composer"
+  "nodejs_20"
 ]
-aptPkgs = ["libzip-dev", "libpng-dev", "libjpeg-dev", "libxml2-dev"]
+aptPkgs = ["libzip-dev", "libpng-dev", "libjpeg-dev", "libxml2-dev", "curl"]
 
 [phases.install]
 cmds = [
